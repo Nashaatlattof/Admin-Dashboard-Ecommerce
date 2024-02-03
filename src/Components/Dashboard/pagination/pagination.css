@@ -1,0 +1,19 @@
+
+
+.main-paginate {
+    list-style-type: none;
+}
+
+.anchor-paginate{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
+    line-height: 25px;
+   transition: 0.3s;
+}
+
+.previous-link,
+.next-link {
+   color: rgba(113, 99, 186, 255);
+}

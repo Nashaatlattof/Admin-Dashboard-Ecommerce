@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "dzannotti.vscode-babel-coloring",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.path-intellisense",
+        "zenghongtu.vscode-css-intellisense",
+        "zignd.html-css-class-completion",
+        "tabnine.tabnine-vscode"
+    ]
+}

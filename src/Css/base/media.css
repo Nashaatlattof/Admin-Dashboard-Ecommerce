@@ -1,0 +1,28 @@
+
+/* Media Query */
+
+@media (max-width: 576px) {
+  .contaner {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .contaner {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .contaner {
+    width: 920px;
+  }
+}
+@media (min-width: 1200px) {
+  .contaner {
+    width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .contaner {
+    width: 1320px;
+  }
+}

@@ -1,0 +1,32 @@
+*{
+  box-sizing: border-box;
+  --color-text: #292627;
+  --button-color: #5f8671;
+  --color-primary:#f0b736;
+  --color-secondery:#818962;
+}
+
+body{
+  font-family: 'Lato', sans-serif !important;
+
+}
+/* .container{
+  margin: 0 auto;
+} */
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.h-100{
+  height: 100vh;
+}
+.title-btn{
+ background: linear-gradient(135deg, #fa00ff, #00e0ff 50%, #fa00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: x-large;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
