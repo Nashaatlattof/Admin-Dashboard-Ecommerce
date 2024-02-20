@@ -14,9 +14,9 @@ import { SaleProducts } from '../../../Api/Api'
 
 
 
-import SketlonPage from '../skelton/sketlonPage'
 import { Axios } from '../../../Api/Axios'
-import axios from 'axios'
+import SkiletonPage from '../skelton/SkeletonPage'
+
 
 
 const LatestProducts = () => {
@@ -136,7 +136,7 @@ Axios.get(`${SaleProducts}`).then((res) => {
         {loading ? (
           <>
            
-              <SketlonPage leng="7" height="350px" width="250px" />
+              <SkiletonPage leng="7" height="350px" width="250px" />
            
           </>
         ) : (

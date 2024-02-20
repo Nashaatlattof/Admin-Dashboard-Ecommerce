@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 
-const SketlonPage = ( props ) => {
+const SkiletonPage = ( props ) => {
   const skeletonNumbers = Array.from({ length: props.leng }).map((_, key) => (
     
       <Skeleton
@@ -15,4 +15,4 @@ const SketlonPage = ( props ) => {
   return skeletonNumbers;
 };
 
-export default SketlonPage;
+export default SkiletonPage;
