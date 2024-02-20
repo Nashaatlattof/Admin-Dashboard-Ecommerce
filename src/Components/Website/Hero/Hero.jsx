@@ -1,15 +1,17 @@
 import React from 'react'
 import { Carousel, Col, Container, Row, Stack } from 'react-bootstrap'
-import img1 from '../../assets/hero.jpg'
-import img2 from '../../assets/hero1.jpg'
-import img3 from '../../assets/hero2.jpg'
-import img4 from '../../assets/hero3.jpg'
-import img5 from '../../assets/hero6.jpg';
+import img1 from '../../../assets/hero.jpg'
+import img2 from '../../../assets/hero1.jpg'
+import img3 from '../../../assets/hero2.jpg'
+import img4 from '../../../assets/hero3.jpg'
+import img5 from '../../../assets/hero6.jpg';
 import './hero.css'
 
 const Hero = () => {
+
+  
   return (
-    <Container  style={{ marginTop: 50, display: "flex", alignItems: "center" }}>
+    <Container style={{ display: "flex", alignItems: "center" }}>
       <Row>
         <Col xs="12" md={8}>
           <Carousel fade>
@@ -74,12 +76,18 @@ const Hero = () => {
                   left: "10%",
                   top: "10%",
                   fontWeight: "900",
-                  color: "white",
+                  color: "white"
                 }}
                 className="text-uppercase"
               >
                 new <br></br>
-                <span style={{ fontWeight: "400", fontSize: "1.5rem" }}>
+                <span
+                  style={{
+                    fontWeight: "400",
+                    fontSize: "1.5rem",
+                    color: "rgba(113, 99, 186, 255)",
+                  }}
+                >
                   arrivals
                 </span>
               </h1>
@@ -102,7 +110,13 @@ const Hero = () => {
                 className="text-uppercase"
               >
                 big <br></br>
-                <span style={{ fontWeight: "400", fontSize: "1.5rem" }}>
+                <span
+                  style={{
+                    fontWeight: "400",
+                    fontSize: "1.5rem",
+                    color: "rgba(113, 99, 186, 255)",
+                  }}
+                >
                   clearance
                 </span>
               </h1>

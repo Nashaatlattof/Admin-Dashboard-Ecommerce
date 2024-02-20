@@ -14,10 +14,7 @@ const Category = () => {
 
   const navigate = useNavigate();
 
-  /*     const id= Number(window.location.pathname.replace("/Dashboard/users/",""))
-
-
- */
+  /*     const id= Number(window.location.pathname.replace("/Dashboard/users/","")*/
   /*  const id = window.location.pathname.split("/").slice(-1)[0]; */
 
   const {id} = useParams()

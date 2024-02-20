@@ -7,6 +7,7 @@ export default function PaginatedItems({ itemsPerPage, data, setPage, total }) {
 
  const pageCount = Math.ceil(total / itemsPerPage) 
 
+
   return (
     <>
       <ReactPaginate

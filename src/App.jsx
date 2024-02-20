@@ -1,5 +1,5 @@
 import "./App.css";
-import Home from "./Pages/website/Home";
+
 import Signup from "./Pages/Auth/Signup";
 import { Routes, Route } from "react-router-dom";
 import Users from "./Pages/Dashboard/Users";
@@ -18,12 +18,18 @@ import Category from "./Pages/Dashboard/Category";
 import Test from "./Pages/Test";
 import Products from "./Pages/Dashboard/Products";
 import AddProduct from "./Pages/Dashboard/AddProduct";
+import WebsiteCategories from "./Pages/website/categories/websiteCategories";
+import Website from "./Pages/website/Website";
+import Home from "./Pages/website/Landing/Home";
 function App() {
   return (
     <>
       <Routes>
         {/* puplic routs */}
-        <Route path="/" element={<Home />}></Route>
+        <Route element={<Website/>}>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/categories" element={<WebsiteCategories />}></Route>
+        </Route>
 
         <Route element={<RequireBack />}>
           <Route path="/login" element={<Login />}></Route>

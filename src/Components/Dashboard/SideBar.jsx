@@ -7,6 +7,7 @@ import { Window } from '../../Context/WindowContext';
 import { Links } from './NavLink';
 import { Axios } from '../../Api/Axios';
 import { USER } from '../../Api/Api';
+import { Typography } from '@mui/material';
 
 
 const SideBar = () => {
@@ -38,7 +39,7 @@ const SideBar = () => {
         style={{
           position: "fixed",
           left: "0",
-         
+
           width: "100%",
           height: "100vh",
           backgroundColor: "rgb(0, 0, 0, 0.2)",
@@ -53,7 +54,8 @@ const SideBar = () => {
           position: windowSize < "768" ? "fixed" : "sticky",
         }}
       >
-       
+        <Typography sx={{ fontSize: "1.6rem", color:'white' ,textAlign:'center',marginBottom:'1rem' }}>DASHBOARD</Typography>
+
         {Links.map(
           (link, key) =>
             link.role.includes(currentUser.role) && (

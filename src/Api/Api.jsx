@@ -8,6 +8,9 @@ export const CAT= 'categories'
 export const CATEGORY= 'category'
 export const PRO= 'products'
 export const Pro= 'product'
+export const SaleProducts = "latest-sale";
+export const Products= 'products'
+
 
 
 

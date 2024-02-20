@@ -6,9 +6,22 @@ import { Link } from "react-router-dom";
 import PaginatedItems from "../../Components/Dashboard/pagination/Pagination";
 import { Axios } from "../../Api/Axios";
 import { useEffect, useState } from "react";
+import formatRandomDate from "../../Components/helpers/formatRandomDate";
 
-
-export default function TableShow({ header, data, handleDelete, currentUser, limit, page, setPage, setLimit, handleSearch, loading , total, searchingLink}) {
+export default function TableShow({
+  header,
+  data,
+  handleDelete,
+  currentUser,
+  limit,
+  page,
+  setPage,
+  setLimit,
+  handleSearch,
+  loading,
+  total,
+  searchingLink,
+}) {
   const user = currentUser || {
     name: "",
   };
@@ -24,40 +37,68 @@ const end = Number(start) + Number(limit);
 const final = data.slice(start, end);
 
 const filterdData = final.filter((item) => item.title.toLowerCase().includes(search.toLocaleLowerCase())) */
- 
+
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-   const dispalyedData = search.length > 0 ? filteredData : data;
-   const [searchLoading, setSearchLoading] = useState(false);
-const [results, setResults] = useState(false)
+
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [date, setDate] = useState("");
+
+  const filteredDataByDate = data.filter(
+    (item) => formatRandomDate(item.created_at) === date
+  );
+     
+  const filterSearchByDate = filteredData.filter((item) => formatRandomDate(item.created_at) === date
+
+    
+   
+  
+  )
+  
+  /* const filteredSearchByDate = filteredData.filter(
+    (item) => 
+    {
+      formatRandomDate(item.created_at) === date;
+       console.log(typeof(formatRandomDate(item.created_at)) === typeof(date));
+    console.log(date)
+    console.log(formatRandomDate(item.created_at));
+    }
+  );
+  console.log(filteredData);
+  console.log(filteredSearchByDate); */
+
+  const dispalyedData =
+    date.length !== 0
+      ? search.length > 0
+        ? filterSearchByDate
+        : filteredDataByDate
+      : search.length > 0
+      ? filteredData
+      : data;
 
   async function getDataSearching() {
     try {
       const res = await Axios.post(`${searchingLink}/search?title=${search}`);
-      console.log(res);
+
       setFilteredData(res.data);
     } catch (error) {
       console.log(error);
-    } finally{
+    } finally {
       setSearchLoading(false);
-      setResults(false);
     }
   }
-  console.log(filteredData);
+
+ 
 
   useEffect(() => {
     const debounce = setTimeout(() => {
-    search.length > 0 ? getDataSearching() : setSearchLoading(false);
+      search.length > 0 ? getDataSearching() : setSearchLoading(false);
     }, 500);
     return () => clearTimeout(debounce);
   }, [search]);
 
   //Display Header Table
-  const headerShow = header.map((item, key) => (
-    <th  key={key}>
-      {item.name}
-    </th>
-  ));
+  const headerShow = header.map((item, key) => <th key={key}>{item.name}</th>);
   //Display Body Table
   const dataShow = dispalyedData.map((item1, key) => (
     <tr key={key}>
@@ -67,6 +108,8 @@ const [results, setResults] = useState(false)
         <td key={key2}>
           {item2.key === "image" ? (
             <img width={"30px"} src={item1[item2.key]} />
+          ) : item2.key === "created_at" || item2.key === "updated_at" ? (
+            formatRandomDate(item1[item2.key])
           ) : item1[item2.key] === "1995" ? (
             "admin"
           ) : item1[item2.key] === "1992" ? (
@@ -108,7 +151,7 @@ const [results, setResults] = useState(false)
     <>
       <div className="d-flex flex-column bg-white p-3">
         <div className=" d-flex mb-2">
-          <div className="col-4">
+          <div className="col-3 me-2">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -117,6 +160,16 @@ const [results, setResults] = useState(false)
               onChange={(e) => {
                 setSearch(e.target.value);
                 setSearchLoading(true);
+              }}
+            />
+          </div>
+          <div className="col-3 me-2">
+            <Form.Control
+              type="date"
+              className=" mr-sm-2"
+              onChange={(e) => {
+                setDate(e.target.value);
+                
               }}
             />
           </div>
@@ -134,13 +187,9 @@ const [results, setResults] = useState(false)
           </div>
         </div>
 
-        <Table  >
+        <Table>
           <thead className="bg-success">
-            <tr
-            
-              className="heading-table"
-            
-            >
+            <tr className="heading-table">
               <th>Id</th>
               {headerShow}
               <th>Action</th>
@@ -158,13 +207,13 @@ const [results, setResults] = useState(false)
                 <td className="text-center" colSpan={12}>
                   <Spinner animation="grow" />
                 </td>
-              </tr>
-            ) : search.length > 0 ? (
+              </tr> /* : dispalyedData.length === 0 ? (
               <tr>
                 <td className="text-center" colSpan={12}>
                   no results found
                 </td>
               </tr>
+            )  */
             ) : (
               dataShow
             )}
@@ -183,5 +232,3 @@ const [results, setResults] = useState(false)
     </>
   );
 }
-
-

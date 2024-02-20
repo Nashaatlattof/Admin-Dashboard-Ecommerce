@@ -10,8 +10,8 @@ const Categories = () => {
 
     const [categories, setCategories] = useState([]);
     const [deleteUsers, setDeleteUsers] = useState(false);
-    const [limit, setLimit]= useState(3);
-    const [page, setPage] = useState(2);
+    const [limit, setLimit]= useState(8);
+    const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [total, setTotal] = useState();
 
@@ -22,6 +22,7 @@ const Categories = () => {
       .then((data) => {
         setTotal(data.data.total);
         setCategories(data.data.data);
+        console.log(data.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -47,6 +48,14 @@ const Categories = () => {
     {
         key:"image",
       name: "image",
+    },
+    {
+        key:"created_at",
+      name: "created",
+    },
+    {
+        key:"updated_at",
+      name: "updated",
     },
   ];
 
