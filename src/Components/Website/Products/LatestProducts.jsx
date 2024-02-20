@@ -93,7 +93,7 @@ console.log(products1)
 }, []);  */
 useEffect(() => {
 Axios.get(`${SaleProducts}`).then((res) => {
-  console.log(res.data);
+  console.log(res.data[0].images[0].image);
   setProducts1(res.data);
 });
 }, []); 
@@ -102,9 +102,10 @@ Axios.get(`${SaleProducts}`).then((res) => {
 
 
 
-   const showProduct = products1.map((product, key) => (
+   const showProduct = products.map((product, key) => (
      <div key={key} className="col-12 col-md-6 col-lg-3 mt-5 mb-5">
-       <Product img={product.images[0]} />
+     <Product  img={product.img}/>
+      
      </div>
    ));
 

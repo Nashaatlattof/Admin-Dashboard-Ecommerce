@@ -1,8 +1,8 @@
-import React from 'react'
-import Header from '../../../Components/Website/Header/Header';
+
 import Features from '../../../Components/Website/Hero/Features';
 import Hero from '../../../Components/Website/Hero/Hero';
-import LatestProducts from '../../../Components/Website/Products/latestProducts';
+import LatestProducts from '../../../Components/Website/Products/LatestProducts';
+
 
 const Home = () => {
    
