@@ -11,15 +11,18 @@ import MenuContext from './Context/MenuContext.jsx'
 import WindowContext from './Context/WindowContext.jsx'
 import './custom.css'
 import "react-loading-skeleton/dist/skeleton.css";
+import Context from './Pages/website/context/Context.jsx'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <WindowContext>
-      <MenuContext>
-        <R>
-          <App />
-        </R>
-      </MenuContext>
-    </WindowContext>
+    <Context>
+      <WindowContext>
+        <MenuContext>
+          <R>
+            <App />
+          </R>
+        </MenuContext>
+      </WindowContext>
+    </Context>
   </React.StrictMode>
 );

@@ -21,14 +21,20 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 import WebsiteCategories from "./Pages/website/categories/websiteCategories";
 import Website from "./Pages/website/Website";
 import Home from "./Pages/website/Landing/Home";
+import ShopingCart from "./Pages/website/Cart/ShopingCart";
 function App() {
   return (
     <>
       <Routes>
         {/* puplic routs */}
-        <Route element={<Website/>}>
+        <Route element={<Website />}>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/shoppingCart" element={<ShopingCart />}></Route>
           <Route path="/categories" element={<WebsiteCategories />}></Route>
+          <Route
+            path="/auth/google/callback"
+            element={<GoogleCallBack />}
+          ></Route>
         </Route>
 
         <Route element={<RequireBack />}>
@@ -37,10 +43,6 @@ function App() {
           <Route path="/test" element={<Test />}></Route>
         </Route>
 
-        <Route
-          path="/auth/google/callback"
-          element={<GoogleCallBack />}
-        ></Route>
         <Route path="/*" element={<Err404 />}></Route>
         {/* protected routs */}
         <Route element={<RequireAuth allowedRole={["1995", "1900", "1999"]} />}>

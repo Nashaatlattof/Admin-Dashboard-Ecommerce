@@ -10,10 +10,16 @@
     padding: 0 20px;
 
 }
+.top-bar .btn-primary  {
+background-color: black !important;
+border: 1px solid black !important;
+} 
+
+
 
 .side-bar {
    
-    height: 100vh;
+    height: auto;
     background-color: rgba(113, 99, 186, 255);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 4;

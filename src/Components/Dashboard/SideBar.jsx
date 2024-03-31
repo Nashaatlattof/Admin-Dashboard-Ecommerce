@@ -8,6 +8,7 @@ import { Links } from './NavLink';
 import { Axios } from '../../Api/Axios';
 import { USER } from '../../Api/Api';
 import { Typography } from '@mui/material';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 
 const SideBar = () => {
@@ -16,6 +17,7 @@ const SideBar = () => {
 
   const menu = useContext(Menu);
   const isOpen= menu.isOpen;
+   const setIsOpen = menu.setIsOpen;
   const window= useContext(Window);
   const windowSize = window.windowSize;
   
@@ -54,8 +56,12 @@ const SideBar = () => {
           position: windowSize < "768" ? "fixed" : "sticky",
         }}
       >
-        <Typography sx={{ fontSize: "1.6rem", color:'white' ,textAlign:'center',marginBottom:'1rem' }}>DASHBOARD</Typography>
-
+      {isOpen && <Typography sx={{ fontSize: "1.6rem", color:'white' ,textAlign:'center',marginBottom:'1rem' }}>DASHBOARD</Typography>}  
+        {isOpen && windowSize < "768" ? <FontAwesomeIcon
+          onClick={() => setIsOpen((prev) => !prev)}
+          icon={faBars}
+          className="title-btn"
+        /> : '' }
         {Links.map(
           (link, key) =>
             link.role.includes(currentUser.role) && (

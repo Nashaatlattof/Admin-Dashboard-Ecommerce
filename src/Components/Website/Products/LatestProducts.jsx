@@ -16,6 +16,7 @@ import { SaleProducts } from '../../../Api/Api'
 
 import { Axios } from '../../../Api/Axios'
 import SkiletonPage from '../skelton/SkeletonPage'
+import { CartState } from '../../../Pages/website/context/Context'
 
 
 
@@ -23,7 +24,7 @@ const LatestProducts = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const products = [
+  const products2 = [
     {
       title: "Casual Wear",
       price: 180,
@@ -82,29 +83,25 @@ const LatestProducts = () => {
     },
   ];
   
-  const [products1, setProducts1]=useState([])
-console.log(products1)
+    const [products, setProducts] = useState([]);
 
-/* useEffect(() => {
-  axios.get("http://127.0.0.1:8000/api/latest-sale").then((res) => {
-    setProducts1(res.data);
-    console.log(res.data);
-  }).finally(() => {  });
-}, []);  */
-useEffect(() => {
-Axios.get(`${SaleProducts}`).then((res) => {
-  console.log(res.data[0].images[0].image);
-  setProducts1(res.data);
-});
-}, []); 
+    useEffect(() => {
+      Axios.get(`${SaleProducts}`).then((res) => {
+        console.log(res.data[0].images[0].image);
+        setProducts(res.data);
+      });
+    }, []); 
 
+    
+
+ 
 
 
 
 
    const showProduct = products.map((product, key) => (
-     <div key={key} className="col-12 col-md-6 col-lg-3 mt-5 mb-5">
-     <Product  img={product.img}/>
+     <div key={key} className="">
+     <Product prod={product}/>
       
      </div>
    ));

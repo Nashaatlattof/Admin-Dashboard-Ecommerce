@@ -3,10 +3,13 @@
 left: 50% !important;
 top: 50%;
 transform: translate(-50%, -50%);
+width: 60%;
 
 }
 .carousel-caption h1 {
-    font-weight: 900;
+    font-weight: 900;  
+    color: wheat;
+    
 
 }
 .carousel-caption h1 span{

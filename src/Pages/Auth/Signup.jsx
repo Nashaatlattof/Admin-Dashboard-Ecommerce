@@ -4,9 +4,9 @@ import axios from 'axios'
 import Cookie from "cookie-universal";
 import Loading from '../../Components/Loading/Loading'
 import { BsFillExclamationOctagonFill } from 'react-icons/bs'
-import "../../Css/components/form.css"
+/* import "../../Css/components/form.css" */
 import { useNavigate } from 'react-router-dom';
-
+import '../Auth/Auth.css'
 
 const Signup = () => {
 
@@ -61,14 +61,14 @@ const Signup = () => {
         
 
         <div className="container">
-          <div className="row " style={{ height: "100vh" }}>
+          <div style={{ height: "100vh", display:'flex', alignItems:'center' }}>
             <form onSubmit={handleSubmit} className="form">
               <div className="form-style">
                 <h1 className="mb-5 text-center" style={{ color: "#416d6d" }}>
                   Register Now
                 </h1>
 
-                <div className="form-costum">
+                <div className="form-costum mb-3">
                   <input
                     id="name"
                     type="text"
@@ -80,7 +80,7 @@ const Signup = () => {
                   ></input>
                   <label htmlFor="name">Name</label>
                 </div>
-                <div className="form-costum">
+                <div className="form-costum mb-3">
                   <input
                     id="email"
                     type="email"
@@ -91,7 +91,7 @@ const Signup = () => {
                   ></input>
                   <label htmlFor="email">Email</label>
                 </div>
-                <div className="form-costum">
+                <div className="form-costum mb-3">
                   <input
                     id="password"
                     type="password"

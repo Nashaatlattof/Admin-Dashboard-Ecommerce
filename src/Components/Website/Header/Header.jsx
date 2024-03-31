@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Container, Form, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Badge, Button, Container, Form, Navbar } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/aram-shop-high-resolution-logo-black-transparent.png";
 import { Axios } from "../../../Api/Axios";
 import { CAT } from "../../../Api/Api";
@@ -8,51 +8,69 @@ import "./nav.css";
 import textSlice from "../../helpers/textSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBars,
   faCaretRight,
   faCartShopping,
   faMagnifyingGlass,
+  faRectangleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import Skeleton from "react-loading-skeleton";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { CartState } from "../../../Pages/website/context/Context";
 
 const Header = () => {
-
+  const [showMenu, setShowMenu] = useState(false);
   const [categoriess, setCategoriess] = useState([]);
   const [loading, setLoading] = useState(true);
+ const {
+   state: { cart },
+   dispatch,
+ } = CartState();
+
+ const cartItemCount = cart.reduce((total, product) => total + product.qty, 0);
+
+
   useEffect(() => {
     Axios.get(`${CAT}`)
       .then((res) => {
-        setCategoriess(res.data.slice( -6));
-        console.log(res.data)
+        setCategoriess(res.data.slice(-4));
+        console.log(res.data);
       })
       .finally(() => {
-       setLoading(false);
+        setLoading(false);
       });
   }, []);
- const [isSearchFocused, setIsSearchFocused] = useState(false);
- const searchInputRef = useRef(null);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const searchInputRef = useRef(null);
 
- const handleSearchIconClick = () => {
-   setIsSearchFocused(true);
-   if (searchInputRef.current) {
-     searchInputRef.current.focus();
-   }
- };
+  const handleSearchIconClick = () => {
+    setIsSearchFocused(true);
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
 
+  const handleShowCart = () => {
+
+
+  }
 
   const categoriesShow = categoriess.map((category, key) => (
     <>
       <div
         style={{
-          padding: "0.6rem 2rem",
+          border: "1px solid black",
+          padding: "0.4rem 1rem",
           backgroundColor: "#f3f3f3b0",
           borderRadius: "8px",
+       
         }}
         className="image d-flex align-items-center justify-content-between gap-3"
       >
         <img
           width={"35px"}
-          style={{}}
           src={category.image}
           alt=""
           className="img-fluid rounded-3"
@@ -67,7 +85,11 @@ const Header = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar
+        expand="lg"
+        className="bg-body-tertiary"
+        style={{ position: "sticky", top: 0, left: 0, zIndex: "100" }}
+      >
         <Container fluid>
           <Navbar.Brand href="#">
             <img
@@ -80,9 +102,63 @@ const Header = () => {
           </Navbar.Brand>
 
           <div
-            className="col-md-5 col-12 my-2 my-lg-0  order-3 order-lg-2 position-relative"
+            className="d-flex gap-2 col-12 col-lg-6 my-2 my-lg-0  order-3 order-lg-2 position-relative"
             style={{ maxHeight: "100px" }}
           >
+            <Button
+              className="d-lg-none btn-dark"
+              onClick={() => setShowMenu(true)}
+            >
+              <FontAwesomeIcon icon={faBars} />
+            </Button>
+            {showMenu && (
+              <div className="fixed">
+                <FontAwesomeIcon
+                  icon={faRectangleXmark}
+                  style={{
+                    cursor: "pointer",
+                    fontSize: "32px",
+                    position: "absolute",
+                    top: "20px",
+                    right: "20px",
+                  }}
+                  onClick={() => setShowMenu(false)}
+                />
+                <div className="h-100 d-flex justify-content-center align-items-center">
+                  <ul
+                    style={{
+                      minWidth: "70%",
+                      alignItems: "center",
+                      gap: "10px",
+                      padding: "3rem 0",
+                      backgroundColor: "rgba(255, 255, 255,0.5)",
+                      listStyle: "none",
+                      borderRadius: "12px",
+                    }}
+                  >
+                    {categoriess.map((category, key) => (
+                      <li
+                        className="menu-link"
+                        key={key}
+                        style={{
+                          margin: "0 2rem",
+
+                          padding: "0.5rem 0",
+                          textAlign: "center",
+                        }}
+                      >
+                        <a
+                          className="d-block "
+                          style={{ color: "var(--mycolor)", fontSize: "22px" }}
+                        >
+                          {textSlice(category.title, 15)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
             <Form.Control
               type="search"
               placeholder="Search"
@@ -108,9 +184,14 @@ const Header = () => {
             <Link className="icon" onClick={handleSearchIconClick}>
               <FontAwesomeIcon icon={faMagnifyingGlass} className="fa-lg" />
             </Link>
-            <div className="icon">
-              <FontAwesomeIcon icon={faCartShopping} className="fa-lg" />{" "}
-            </div>
+            <NavLink to="/shoppingCart" className="icon">
+              <Badge style={{
+                position:'absolute',
+                 top:'8px',
+                  fontSize:'10px',
+                  bgColor:'var(--mycolor)!important'}}> {cartItemCount}</Badge>
+              <FontAwesomeIcon style={{position:'relative'}} icon={faCartShopping} className="fa-lg" />{" "}
+            </NavLink>
             <Link to="/login" className="icon">
               <FontAwesomeIcon
                 icon={faUser}
@@ -136,8 +217,62 @@ const Header = () => {
           </div>
         </Container>
       </Navbar>
-      <Container fluid>
-        <div className="d-flex align-items-center justify-content-center mb-3 py-3 gap-2 flex-wrap">
+
+      <Navbar
+        expand="lg"
+        className="d-flex gap-3  mb-3 shadow-sm"
+        style={{ height: "60px", bgColor: "#F8F9FA", justifyContent: "center" }}
+      >
+        <div className="d-flex ps-2 pe-2 gap-2">
+          <DropdownButton
+            id="dropdown-basic-button"
+            className=""
+            title="Categories"
+          >
+            <Dropdown.Item href="#/action-1">Men's</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Women's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">kit's</Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            id="dropdown-basic-button"
+            className=" btn-dark"
+            title="Dashboard"
+          >
+            <Dropdown.Item href="#/action-1">Users</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Categories</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Products</Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            id="dropdown-basic-button"
+            className=" btn-dark"
+            title=" Latest Products"
+          >
+            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            id="dropdown-basic-button"
+            className=" btn-dark"
+            title="Products"
+          >
+            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            id="dropdown-basic-button"
+            className=" btn-dark"
+            title="Pages"
+          >
+            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+          </DropdownButton>
+        </div>
+      </Navbar>
+
+      {/* <div className=" d-none d-lg-flex  align-items-center justify-content-center mb-1 py-3 gap-2 flex-wrap">
           {loading ? (
             <>
               <Skeleton height={"40px"} width={"100px"} className="nav-cat " />
@@ -162,8 +297,7 @@ const Header = () => {
               </Link>
             </>
           )}
-        </div>
-      </Container>
+        </div> */}
     </>
   );
 };

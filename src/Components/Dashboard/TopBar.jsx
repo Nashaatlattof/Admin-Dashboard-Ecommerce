@@ -52,7 +52,7 @@ const TopBar = () => {
       </div>
 
       <div className="w-25 d-flex justify-content-end">
-        <SplitButton drop="up-centered" title={name}>
+        <SplitButton drop="down-centered" title={name}>
           <Dropdown.Item onClick={handleLogout} className=" btn btn-success">
             LogOut
           </Dropdown.Item>

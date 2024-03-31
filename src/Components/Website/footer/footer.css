@@ -1,0 +1,31 @@
+
+
+.footer {
+    background-image: url(/src/assets/footer-pattern-mGVwO-y6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 100%;
+    width: 100%;
+}
+.nav-link {
+padding: 12px !important;
+
+}
+.link:not(:last-child){
+    
+    border-bottom: 1px solid #444 !important;
+   
+}
+.link:not(:last-child):hover{
+    
+    border-bottom: 1px solid var(--mycolor) !important;
+   
+}
+.label {
+    transition: 0.3s ease-in-out ;
+}
+ .link:hover .label {
+    padding-left: 15px !important;
+    color: var(--subtitle) !important;
+ }

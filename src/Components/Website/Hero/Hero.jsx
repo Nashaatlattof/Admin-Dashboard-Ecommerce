@@ -11,9 +11,9 @@ const Hero = () => {
 
   
   return (
-    <Container style={{ display: "flex", alignItems: "center" }}>
+    <Container fluid style={{ display: "flex", alignItems: "center" }}>
       <Row>
-        <Col xs="12" md={8}>
+        <Col xs="12" md={12} lg={8}>
           <Carousel fade>
             <Carousel.Item>
               <img
@@ -61,7 +61,7 @@ const Hero = () => {
             </Carousel.Item>
           </Carousel>
         </Col>
-        <Col className="d-none d-md-block">
+        <Col className="d-none d-lg-block">
           <Stack gap={3}>
             <div style={{ position: "relative" }}>
               <img
@@ -76,7 +76,7 @@ const Hero = () => {
                   left: "10%",
                   top: "10%",
                   fontWeight: "900",
-                  color: "white"
+                  color: "wheat",
                 }}
                 className="text-uppercase"
               >
@@ -105,7 +105,7 @@ const Hero = () => {
                   left: "10%",
                   top: "10%",
                   fontWeight: "900",
-                  color: "white",
+                  color: "wheat",
                 }}
                 className="text-uppercase"
               >

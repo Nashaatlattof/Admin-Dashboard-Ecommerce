@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { LOGOUT, baseUrl } from '../../Api/Api';
 import Cookie from "cookie-universal";
 import { useNavigate } from 'react-router-dom';

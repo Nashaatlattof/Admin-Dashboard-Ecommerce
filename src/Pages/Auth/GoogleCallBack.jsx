@@ -1,8 +1,9 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { GOOGLE_CALL_BACK, baseUrl } from '../../Api/Api'
-import { useLocation } from 'react-router-dom'
+import {  useLocation, Navigate } from 'react-router-dom'
 import Cookie from 'cookie-universal'
+
 const GoogleCallBack = () => {
 
 const location= useLocation()
@@ -15,7 +16,7 @@ const cookie = Cookie()
          );
          const token = res.data.access_token;
          cookie.set('e-commerce', token) 
-         console.log(res)
+         
         }catch(err){
             console.log(err)
         }
@@ -23,7 +24,11 @@ const cookie = Cookie()
         GoogleCall()
         
     },[])
-  return <h1>test</h1>
+  return (
+    <>
+     <Navigate to={'/'}/>
+    </>
+  );
 }
 
 export default GoogleCallBack

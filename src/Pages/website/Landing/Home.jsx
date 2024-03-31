@@ -1,4 +1,5 @@
 
+import Carousel from '../../../Components/Website/Carousel/Carousel';
 import Features from '../../../Components/Website/Hero/Features';
 import Hero from '../../../Components/Website/Hero/Hero';
 import LatestProducts from '../../../Components/Website/Products/LatestProducts';
@@ -9,8 +10,9 @@ const Home = () => {
   return (
     <>
       <Hero />
+      <Carousel />
       <Features />
-      <LatestProducts/>
+      <LatestProducts />
     </>
   );
 }
