@@ -16,7 +16,6 @@ import { SaleProducts } from '../../../Api/Api'
 
 import { Axios } from '../../../Api/Axios'
 import SkiletonPage from '../skelton/SkeletonPage'
-import { CartState } from '../../../Pages/website/context/Context'
 import textSlice from '../../helpers/textSlice'
 
 

@@ -3,6 +3,7 @@ import { SwiperSlide } from 'swiper/react';
 import { faStar as regularStars } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./product.css";
 
 const ProductSale = ({product}) => {
 const stars = Math.min(Number(product.rating), 6);
