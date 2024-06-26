@@ -3,6 +3,7 @@ import Carousel from '../../../Components/Website/Carousel/Carousel';
 import Features from '../../../Components/Website/Hero/Features';
 import Hero from '../../../Components/Website/Hero/Hero';
 import LatestProducts from '../../../Components/Website/Products/LatestProducts';
+import SalesProducts from "../../../Components/Website/Products/SalesProducts";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Carousel />
       <Features />
       <LatestProducts />
+      <SalesProducts />
     </>
   );
 }

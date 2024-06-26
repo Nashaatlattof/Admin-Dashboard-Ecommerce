@@ -11,7 +11,7 @@ import textSlice from '../../helpers/textSlice';
 const Product = ({prod}) => {
 
 
-    const stars = Math.min(Number(prod.rating), 8);
+    const stars = Math.min(Number(prod.discount), 8);
 
   const showSolidStars = Array.from({ length: stars }).map((_, key) => (
     <FontAwesomeIcon key={key} icon={solidStars} color='gold' />
@@ -66,6 +66,7 @@ let image = prod.images[0] ? prod.images[0].image : prod.images[0]
               borderRadius: "8px",
               fontSize: "25px",
               transition: "0.1s",
+              cursor:'pointer'
             }}
             onClick={() =>
               dispatch({
@@ -81,7 +82,7 @@ let image = prod.images[0] ? prod.images[0].image : prod.images[0]
             className=" text-decoration-line-through "
             style={{ fontSize: "14px", transition: "0.1s" }}
           >
-            110$
+            $ 110
           </span>
         </h3>
         <div className="ribbon ribbon-top-left">

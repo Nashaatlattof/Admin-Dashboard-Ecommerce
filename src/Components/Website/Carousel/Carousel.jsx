@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer, useRef } from 'react'
 import { Container } from 'react-bootstrap'
 import './carousel.css'
-import img1 from '../../../assets/carousel/behrouz-sasani-6OGml3UomZw-unsplash (2).jpg'
-import img2 from '../../../assets/carousel/marcus-loke-xXJ6utyoSw0-unsplash.jpg'
-import img3 from '../../../assets/carousel/osarugue-igbinoba-c2BcE2zPXjc-unsplash.jpg'
-import img4 from '../../../assets/carousel/taras-chernus--au3XMzfhro-unsplash.jpg'
-import img5 from '../../../assets/carousel/hamza-nouasria--EDIWTbLyYk-unsplash.jpg'
-import img6 from '../../../assets/carousel/jackson-david-vQ1KsEOXkKg-unsplash.jpg'
-import img7 from '../../../assets/carousel/rodrigo-summer-FzazLnJ9Yks-unsplash.jpg'
+import img1 from '../../../assets/carousel/behrouz-sasani-6OGml3UomZw-unsplash (2).webp'
+import img2 from '../../../assets/carousel/marcus-loke-xXJ6utyoSw0-unsplash.webp'
+import img3 from '../../../assets/carousel/osarugue-igbinoba-c2BcE2zPXjc-unsplash.webp'
+import img4 from '../../../assets/carousel/taras-chernus--au3XMzfhro-unsplash.webp'
+import img5 from '../../../assets/carousel/hamza-nouasria--EDIWTbLyYk-unsplash.webp'
+import img6 from '../../../assets/carousel/jackson-david-vQ1KsEOXkKg-unsplash.webp'
+import img7 from '../../../assets/carousel/rodrigo-summer-FzazLnJ9Yks-unsplash.webp'
 
 const slides = [
   {

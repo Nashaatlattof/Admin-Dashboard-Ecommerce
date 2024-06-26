@@ -32,7 +32,8 @@
     "react-loading-skeleton": "^3.4.0",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.17.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

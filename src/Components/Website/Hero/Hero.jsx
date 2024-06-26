@@ -1,12 +1,30 @@
 import React from 'react'
 import { Carousel, Col, Container, Row, Stack } from 'react-bootstrap'
-import img1 from '../../../assets/hero.jpg'
-import img2 from '../../../assets/hero1.jpg'
-import img3 from '../../../assets/hero2.jpg'
-import img4 from '../../../assets/hero3.jpg'
-import img5 from '../../../assets/hero6.jpg';
+import img1 from '../../../assets/landing/hero.webp'
+import img2 from '../../../assets/landing/hero1.webp'
+import img3 from '../../../assets/landing/hero2.webp'
+import img4 from '../../../assets/landing/hero3.webp'
+import img5 from '../../../assets/landing/hero6.webp';
 import './hero.css'
 
+
+const items = [
+  {
+    img: img2,
+    title: "create your individuality",
+    desc: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+  },
+  {
+    img: img3,
+    title: "women's fashion",
+    desc: "consectetur adipiscing elit, a pharetra augue mollis interdum.",
+  },
+  {
+    img: img1,
+    title: "men's fashion",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+];
 const Hero = () => {
 
   
@@ -15,7 +33,19 @@ const Hero = () => {
       <Row>
         <Col xs="12" md={12} lg={8}>
           <Carousel fade>
-            <Carousel.Item>
+            {items.map((item, key) => (
+              <Carousel.Item key={key}>
+                <img
+                  src={item.img}
+                  style={{ width: "100%", borderRadius: "8px" }}
+                  alt=""
+                />
+                <Carousel.Caption>
+                  <h1 style={{textTransform:'uppercase',letterSpacing:'0.2rem'}}>{item.title}</h1> <p>{item.desc}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+            {/*  <Carousel.Item>
               <img
                 src={img1}
                 style={{ width: "100%", borderRadius: "8px" }}
@@ -37,7 +67,7 @@ const Hero = () => {
                 alt=""
               />{" "}
               <Carousel.Caption>
-                <h1 className="text-capitalize">
+                <h1 >
                   men's <span>fashion</span>
                 </h1>{" "}
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -58,7 +88,7 @@ const Hero = () => {
                   consectetur.
                 </p>
               </Carousel.Caption>
-            </Carousel.Item>
+            </Carousel.Item> */}
           </Carousel>
         </Col>
         <Col className="d-none d-lg-block">

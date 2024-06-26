@@ -45,6 +45,10 @@ const Products = () => {
       name: "price",
     },
     {
+      key: "rating",
+      name: "rating",
+    },
+    {
       key: "About",
       name: "About",
     },

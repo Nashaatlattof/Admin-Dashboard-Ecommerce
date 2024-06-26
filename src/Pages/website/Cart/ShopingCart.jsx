@@ -195,7 +195,7 @@ console.log(cartItemCount);
         </Table>
       </TableContainer>
 
-      <Grid container spacing={2} sx={{ padding: "3rem 0" }}>
+      <Grid container spacing={3} sx={{ padding: "3rem 0", gap:'2rem' }}>
         <Grid xs={10} md={7}>
           <Box
             sx={{

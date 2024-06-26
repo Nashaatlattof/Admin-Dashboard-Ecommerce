@@ -26,7 +26,7 @@ max-height: 100%;
 position: relative;
 }
 .product:hover img {
-    transform: scale(1.3) translateY(-80px);
+    transform: scale(1.8) translateY(-80px);
     z-index: 99;
 }
 
@@ -65,7 +65,7 @@ position: absolute;
   position: absolute;
   display: block;
   width: 225px;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: var(--mycolor);
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;
@@ -95,6 +95,142 @@ position: absolute;
 }
 .ribbon-top-left span {
   right: -25px;
-  top: 30px;
+  top: 45px;
   transform: rotate(-45deg);
+}
+
+
+
+///sales products
+
+
+
+.SwiperBody {
+  position: relative;
+  height: 100%;
+}
+
+.SwiperBody {
+  background: rgb(248, 249, 250);
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+.swiper {
+  width: 100%;
+  height: 500px;
+  margin: 20px auto;
+}
+
+
+
+.custom-navigation {
+  padding-top: 10px;
+  position: absolute;
+  right: 30px;
+  top: 40px;
+  display: flex;
+  gap: 10px;
+  z-index: 10; 
+}
+
+.custom-navigation .prev-button,
+.custom-navigation .next-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-navigation .prev-button:hover,
+.custom-navigation .next-button:hover {
+  background-color: #f0f0f0;
+}
+
+
+.product-slide {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  transition: transform 0.3s;
+  height: 450px;
+  min-width: 260px;
+}
+
+
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-image-hover {
+  display: none;
+}
+
+.product-slide:hover .product-image {
+  display: none;
+}
+
+.product-slide:hover .product-image-hover {
+  display: block;
+  width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.new-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.product-info {
+  margin-top: 15px;
+  max-height: fit-content;
+}
+
+.product-info h5 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--mycolor);
+}
+
+.product-info p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-rating {
+  color: #f39c12;
 }

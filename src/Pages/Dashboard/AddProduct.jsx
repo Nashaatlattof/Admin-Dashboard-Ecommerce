@@ -12,6 +12,7 @@ const AddProduct = () => {
     title: "",
     description: "",
     price: "",
+    rate:'',
     discount: "",
     About: "",
   });
@@ -20,6 +21,7 @@ const AddProduct = () => {
     title: "dummy",
     description: "ssss",
     price: 1500,
+    rate: 4,
     discount: 20,
     About: "about",
   };
@@ -74,8 +76,10 @@ const AddProduct = () => {
       data.append("price", form.price);
       data.append("discount", form.discount);
       data.append("About", form.About);
+      data.append("rate", form.rate);
       const res = await Axios.post(`${Pro}/edit/${id}`, data);
       nav("/dashboard/products");
+      console.log(res.data)
     } catch (err) {
       console.log(err);
 
@@ -110,7 +114,7 @@ const AddProduct = () => {
             const loaded = progrssEvent.loaded;
             const total = progrssEvent.total;
             const percent = Math.floor((loaded * 100) / total);
-            console.log(percent)
+            
             if(percent % 10 === 0){
                progress.current[loop.current].style.width = `${percent}%`;
                progress.current[loop.current].setAttribute(
@@ -213,6 +217,18 @@ const AddProduct = () => {
             placeholder="price..."
             name="price"
             value={form.price}
+            onChange={handleChange}
+            disabled={!sent}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="rate">
+          <Form.Label>rating</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="rating..."
+            name="rate"
+            value={form.rate}
             onChange={handleChange}
             disabled={!sent}
           />

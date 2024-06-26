@@ -1,5 +1,11 @@
 
 /* nav categories */
+.dropdown-fullwidth .dropdown-toggle {
+  width: 100%;
+}
+.dropdown-fullwidth .dropdown-toggle::after {
+  margin-left: 50%;
+}
 .nav-cat {
 color: black;
   

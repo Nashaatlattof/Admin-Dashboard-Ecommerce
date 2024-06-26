@@ -35,7 +35,7 @@ const Header = () => {
   useEffect(() => {
     Axios.get(`${CAT}`)
       .then((res) => {
-        setCategoriess(res.data.slice(-4));
+        setCategoriess(res.data.slice(-8));
         console.log(res.data);
       })
       .finally(() => {
@@ -52,10 +52,7 @@ const Header = () => {
     }
   };
 
-  const handleShowCart = () => {
-
-
-  }
+  
 
   const categoriesShow = categoriess.map((category, key) => (
     <>
@@ -185,12 +182,22 @@ const Header = () => {
               <FontAwesomeIcon icon={faMagnifyingGlass} className="fa-lg" />
             </Link>
             <NavLink to="/shoppingCart" className="icon">
-              <Badge style={{
-                position:'absolute',
-                 top:'8px',
-                  fontSize:'10px',
-                  bgColor:'var(--mycolor)!important'}}> {cartItemCount}</Badge>
-              <FontAwesomeIcon style={{position:'relative'}} icon={faCartShopping} className="fa-lg" />{" "}
+              <Badge
+                style={{
+                  position: "absolute",
+                  top: "8px",
+                  fontSize: "10px",
+                  bgColor: "var(--mycolor)!important",
+                }}
+              >
+                {" "}
+                {cartItemCount}
+              </Badge>
+              <FontAwesomeIcon
+                style={{ position: "relative" }}
+                icon={faCartShopping}
+                className="fa-lg"
+              />{" "}
             </NavLink>
             <Link to="/login" className="icon">
               <FontAwesomeIcon
@@ -220,22 +227,28 @@ const Header = () => {
 
       <Navbar
         expand="lg"
-        className="d-flex gap-3  mb-3 shadow-sm"
+        className=" gap-3  mb-3 shadow-sm d-none d-lg-flex"
         style={{ height: "60px", bgColor: "#F8F9FA", justifyContent: "center" }}
       >
-        <div className="d-flex ps-2 pe-2 gap-2">
+        <div className="d-flex ps-2 pe-2 gap-2 w-100 justify-content-between">
           <DropdownButton
             id="dropdown-basic-button"
-            className=""
+            className="flex-grow-1  dropdown-fullwidth"
             title="Categories"
+            style={{ minWidth: "150px" }}
           >
             <Dropdown.Item href="#/action-1">Men's</Dropdown.Item>
             <Dropdown.Item href="#/action-2">Women's</Dropdown.Item>
             <Dropdown.Item href="#/action-3">kit's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Islam's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Modal's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Formal's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Hat's</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Short's</Dropdown.Item>
           </DropdownButton>
           <DropdownButton
             id="dropdown-basic-button"
-            className=" btn-dark"
+            className=" btn-dark flex-grow-1 dropdown-fullwidth"
             title="Dashboard"
           >
             <Dropdown.Item href="#/action-1">Users</Dropdown.Item>
@@ -244,7 +257,7 @@ const Header = () => {
           </DropdownButton>
           <DropdownButton
             id="dropdown-basic-button"
-            className=" btn-dark"
+            className=" btn-dark flex-grow-1 dropdown-fullwidth"
             title=" Latest Products"
           >
             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -253,7 +266,7 @@ const Header = () => {
           </DropdownButton>
           <DropdownButton
             id="dropdown-basic-button"
-            className=" btn-dark"
+            className=" btn-dark flex-grow-1 dropdown-fullwidth"
             title="Products"
           >
             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -262,7 +275,7 @@ const Header = () => {
           </DropdownButton>
           <DropdownButton
             id="dropdown-basic-button"
-            className=" btn-dark"
+            className=" btn-dark flex-grow-1 dropdown-fullwidth"
             title="Pages"
           >
             <Dropdown.Item href="#/action-1">Action</Dropdown.Item>

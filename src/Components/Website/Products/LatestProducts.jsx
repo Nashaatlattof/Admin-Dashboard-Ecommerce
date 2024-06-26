@@ -17,6 +17,7 @@ import { SaleProducts } from '../../../Api/Api'
 import { Axios } from '../../../Api/Axios'
 import SkiletonPage from '../skelton/SkeletonPage'
 import { CartState } from '../../../Pages/website/context/Context'
+import textSlice from '../../helpers/textSlice'
 
 
 
@@ -87,8 +88,9 @@ const LatestProducts = () => {
 
     useEffect(() => {
       Axios.get(`${SaleProducts}`).then((res) => {
-        console.log(res.data[0].images[0].image);
-        setProducts(res.data);
+        console.log(res.data)
+        setProducts(textSlice(res.data, 8));
+        
       });
     }, []); 
 
